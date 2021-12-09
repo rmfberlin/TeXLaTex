@@ -16,7 +16,10 @@ Das Verzeichnis report enthält eine Beispieldatei, die auf der KOMA-Script Klas
 Das Verzeichnis beamer enthält eine Beispieldatei für ein Präsentation auf Basis der beamer-Klasse.
 
 ## Verzeichnis arara
-Das Verzeichnis arara enthält Beispiel-Dateien zu einem Artikel in der DTK (erscheint demnächst), um mit arara externe LaTeX-/PDF-Dokumente zu erzeugen und diese in eine Hauptdatei einzufügen.
+Das Verzeichnis arara enthält Beispiel-Dateien zu einem Artikel in der DTK 03/2021, um mit arara externe LaTeX-/PDF-Dokumente zu erzeugen und diese in eine Hauptdatei einzufügen.
+
+## Verzeichnis VSCodium
+Das Verzeichnis VSCodium enthält die settings.json und zwei snippet-Dateien für TexLaTex und HTML mit dem framework Bootstrap für VS Codium bzw. Visual Studio Code von Microsoft.
 
 ## Interessante Links zu TeX/LaTeX
 * (de) Die Neue TEX-FAQ <https://texfragen.de> – Deutschsprachige sehr ausführliche Fragen und Antworten Seite
