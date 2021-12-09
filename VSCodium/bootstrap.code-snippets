@@ -1,0 +1,214 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"email": {
+		"scope": "html",
+		"prefix": ["email"],
+		"body": ["<script src='../design/js/email.js'></script>.<noscript>Entschuldigung, Sie müssen Javascript eingeschaltet haben, um mir eine E-Mail senden zu können.</noscript>"],
+		"description": "Email verschlüsseln"
+	},
+	"kommentar": {
+		"scope": "html,css,scss",
+		"prefix": ["kom"],
+		"body": [
+			"$BLOCK_COMMENT_START $1 $BLOCK_COMMENT_END"
+		],
+		"description": "Kommentar"
+	},
+	"kommentar start-end": {
+		"scope": "html,css,scss",
+		"prefix": ["kom2"],
+		"body": [
+			"$BLOCK_COMMENT_START $1 $BLOCK_COMMENT_END",
+			"$BLOCK_COMMENT_START $1 (end) $BLOCK_COMMENT_END",
+		],
+		"description": "Kommentar 2-zeilig"
+	},
+	"Referenz": {
+		"scope": "html",
+		"prefix": "rfn",
+		"body": ["<p id=\"note0$1\">$1. <a href=\"#ref0$1\" class=\"backlink\"></a> $2</p>"],
+		"description": "Referenz"
+	},
+	"Footnote": {
+		"scope": "html",
+		"prefix": "footn",
+		"body": ["<a id=\"ref0$1\" class=\"footnote\" href=\"note0$1\">$1</a>"],
+		"description": "footnote"
+	},
+	"url-sitemap": {
+		"scope": "html",
+		"prefix": "xurl",
+		"body": [
+			"<url>",
+			"<loc>https://lietzow12.de</loc>",
+			"<lastmod>$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE</lastmod>",
+			"<priority>0.$1</priority>",
+			"</url>"
+		],
+		"description": "url in sitemap eintragen"
+	},
+	"logbuch": {
+		"prefix": "logb",
+		"body": [
+			"<div class=\"card my-5\">",
+			"\t<img src=\"logbuch/lietzow12-logo-blau.jpg\" width=\"30%\"3 alt=\"\" class=\"mt-3\">",
+			"\t<div class=\"card-body\">",
+			"\t\t<h4>Überschrift</h4>",
+			"\t\t<h5>Überschrift</h5>",
+			"\t\t<p class=\"card-text\">Lore ipsum</p>",
+			"\t\t<p class=\"card-text\">Lore ipsum</p>",
+			"\t\t<p class=\"card-text\">Lore ipsum</p>",
+			"\t\t<div class=\"accordion\" id=\"accordion-${1:card-name}\">",
+			"\t\t\t<div class=\"card\">",
+			"\t\t\t\t<div class=\"card-header\" id=\"heading-$1\"",
+			"\t\t\t\t\t<h2 class=\"mb-0\">",
+			"\t\t\t\t\t<button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#$1\" aria-expanded=\"true\" aria-controls=\"$1\">",
+			"\t\t\t\t\t  Mehr zu …",
+			"\t\t\t\t\t</button>",
+			"\t\t\t\t</h2>",
+			"\t\t\t\t</div>",
+			"\t\t\t\t<div id=\"$1\" class=\"collapse\" aria-labelledby=\"heading-$1\" data-parent=\"#accordion-$1\">",
+			"\t\t\t\t\t<div class=\"card-body\">",
+			"\t\t\t\t\t\t<p>Lore ipsum</p>",
+			"\t\t\t\t\t\t<p>Lore ipsum</p>",
+			"\t\t\t\t\t\t<p>Lore ipsum</p>",
+			"\t\t\t\t\t\t<p>Lore ipsum</p>",
+			"\t\t\t\t\t</div>",
+			"\t\t\t\t</div>",
+			"\t\t\t</div>",
+			"\t\t</div>",
+			"\t</div>",
+			"</div>"
+		],
+		"description": "logbuch-card"
+	},
+	"row-dokuments":{
+		"scope": "html",
+		"prefix": "row-col2",
+		"body": [
+			"<div class=\"row\">",
+      " <div class=\"col\">",
+      "  <h4>$1</h4>",
+      " </div>",
+      "</div>",
+			"<div class=\"row\">",
+			" <div class=\"col\">",
+			"  <p>Dok-Nr.: </p>",
+			"  <p>PDF: <a href=\"\" target=\"_blank\">$2</a></p>",
+			"  <p>Version: 2. – vom  <i class=\"fas fa-pencil-alt\"></i></p>",
+			" </div>",
+			" <div class=\"col\">",
+			"  <p>Word-Datei: <a href=\"\" target=\"_blank\"></a></p>",
+			"  <p>Archiviert Version: 1.0 – vom <i class=\"fas fa-archive\"></i></p>",
+			" </div>",
+			"</div>"
+		],
+		"description": "DMS row 2x col"
+	},
+	"target blank":{
+		"scope": "html",
+		"prefix": "targ",
+		"body": "target=\"_blank\"",
+		"description": "target=blank"
+	},
+	"media-l12":{
+		"scope": "html",
+		"prefix": "media-l12",
+		"body": [
+			"<div class=\"row my-5\">",
+			" <div class=\"col-md-4\">",
+			"  <figure>",
+			"   <img class=\"figure-img img-fluid rounded\" src=\"artists/$1\" alt=\"\">",
+			"   <figcaption class=\"figure-caption\">$2</figcaption>",
+			"  </figure>",
+			" </div>",
+			" <div class=\"col-md\">",
+			"  <div class=\"media\">",    
+			"   <div class=\"media-body\">",
+			"    <h3 class=\"mt-0\">$3</h3>",
+			"    <p><br>",
+			"    <br>",
+			"    </p>",
+			"   </div>",
+			"   <img src=\"artists/$4\" alt=\"$5\">",
+			"  </div>",
+			" </div>",
+			"</div>"
+		],
+		"description": "Darstellung der Künstler*innen"
+	},
+	"table-dms":{
+		"prefix": "table-dms",
+		"scope": "html",
+		"body": [
+			"<table class=\"table table-bordered\">",
+			"\t<thead>",
+			"\t\t<tr>",
+			"\t\t\t<th scope=\"col\">Dok.-Nr.</th>",
+			"\t\t\t<th scope=\"col\">Version</th>",
+			"\t\t\t<th scope=\"col\">Dok.-Name</th>",
+			"\t\t\t<th scope=\"col\">Datei</th>",
+			"\t\t\t<th scope=\"col\">Datum</th>",
+			"\t\t\t<th scope=\"col\">Status</th>",
+			"\t\t</tr>",
+			"\t</thead>",
+			"\t<tr>",
+			"\t\t<td></td>",
+			"\t\t<td>2.0</td>",
+			"\t\t<td></td>",
+			"\t\t<td><a href=\".pdf\" target=\"_blank\"><i class=\"far fa-file-pdf\"></i></a>",
+			"\t\t<br>",
+			"\t\t<a href=\".doc\" target=\"_blank\"><i class=\"far fa-file-word\"></i></a></td>",
+			"\t\t<td></td>",
+			"\t\t<td><i class=\"fas fa-pencil-alt\"></i></td>",
+			"\t</tr>",
+			"\t<tr>",
+			"\t\t<td></td>",
+			"\t\t<td>1.0</td>",
+			"\t\t<td>${1}</td>",
+			"\t\t<td><a href=\".pdf\" target=\"_blank\"><i class=\"far fa-file-pdf\"></i></a>",
+			"\t\t<br>",
+			"\t\t<a href=\".doc\" target=\"_blank\"><i class=\"far fa-file-word\"></i></a></td>",
+			"\t\t<td></td>",
+			"\t\t<td><i class=\"fas fa-check\"></td>",
+			"\t</tr>",
+			"\t<tr>",
+			"\t\t<td></td>",
+			"\t\t<td></td>",
+			"\t\t<td></td>",
+			"\t\t<td><a href=\".pdf\" target=\"_blank\"><i class=\"far fa-file-pdf\"></i></a>",
+			"\t\t\t<br>",
+			"\t\t\t<a href=\".doc\" target=\"_blank\"><i class=\"far fa-file-word\"></i></a></td>",
+			"\t\t<td></td>",
+			"\t\t<td><i class=\"fas fa-archive\"></i></td>",
+			"\t</tr>",
+			"</table>"
+		],
+		"description": "Tabelle DMS"
+	}
+	// 	,
+	// 	"test": {
+	//     "prefix": "test",
+	//     // "body": "${1} -> ${1/(.*)/${1:/upcase}/} > ${1/(.*)/${1:/downcase}/}"
+	//     // simpler version below works too
+	//     "body": "${1} -> ${1/(.*)/${1:/upcase} ${1:/downcase}/}"
+	// wert eingeben dann tab drücken
+	// }
+}
+
+

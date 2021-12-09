@@ -1,0 +1,303 @@
+% !TEX TS-program = xelatex
+% !BIB program = biber
+%	Autor: RMF Berlin
+%	Version: 0.2
+%	Erstellt: 29.01.2018
+%	letzte Änderung: 07.06.2021
+%	TeX/LaTeX-engine: Übersetzung mit xelatex
+% Codierung: UTF-8
+%	scrreport.tex mit literatur.bib für das Literaturverzeichnis
+%	Beispiel für einen längeren, einseitig gedruckten Text mit Literaturverzeichnis, in dem auch 
+%	Quellen aus dem Internet zitiert werden können
+%
+%	Basiert auf KOMA-Script für den deutschsprachigen Raum mit DIN-Formaten
+%	Die aktuelle Dokumentation zu KOMA-Script gibt es hier:
+%	https://komascript.de/~mkohm/scrguide.pdf
+%
+%
+%
+\AtBeginDocument{%
+	\newcommand{\version}{Version: 0.2 \\im Juni~2021}%
+}	% Die Version wird auch auf dem Deckblatt ausgegeben
+
+\documentclass[12pt,	% 	Schriftgröße auf der auch der Seitenspiegel berechnet wird
+				headings=small,		%	insgesamt kleinere Überschriften
+				toc=bibliography,	%	Literaturverzeichnis ohne Nummerierung ins  Inhaltsverzeichnis aufnehmen
+			]	%
+{scrreprt}		% 	für größere, einseitig gedruckte Dokumente mit Kapiteln und Abschnitten 
+				%	wie Seminararbeiten und  sowie Bachelor- und Masterarbeiten 
+				% 	mit Titelblatt
+				%	Siehe auch Musterdatei scrbook.tex für Bücher
+%
+\usepackage{xltxtra}	%	This package automatically loads the following packages: fontspec, realscripts, metalogo.
+\usepackage{microtype}	%	für schönere Microtypographie
+%
+%
+% Abstand der Fußnotenziffer vom Text regulieren, gefunden in https://tex.stackexchange.com/questions/403022/6mm-spacing-between-footnote-number-and-text am 5.2.2018
+% \deffootnote[<mark indent>]{<indent>}{<par indent>}{<format code>}
+\deffootnote{\dimexpr1em+6pt}{0em}{\thefootnotemark\hspace{6pt}}	% 6pt als die Hälfte der gewählten Schriftgröße von 12pt (s. documentclass)
+% Siehe auch http://www.typolexikon.de/fussnote/
+%
+%
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor} % für farbige Hintergründe und farbige Schriften
+\newcommand{\inlinecode}[1]{\colorbox{Gainsboro}{\textsf{\textbackslash#1}}} % für den LaTeX-Code im Fließtext
+\newcommand{\inlinebefehl}[1]{\colorbox{Gainsboro}{\textsf{#1}}} % für den LaTeX-Code im Fließtext
+
+
+% \usepackage{MnSymbol} % Minion Pro Symbols
+% \usepackage{marvosym} % more symbols
+\usepackage{listings}
+\lstset{numbers=left, 
+				% numberstyle=\tiny, 
+				basicstyle=\footnotesize\sffamily,
+        breaklines=true,
+        backgroundcolor=\color{LightGray},
+        xleftmargin=\parindent,
+				tabsize=1,
+        %xleftmargin=1cm,
+        %xrightmargin=\parindent,
+        numbersep=5pt}
+% \usepackage{biolinum}	% eine freie, sehr schöne serifenlose Schrift
+						% eher für technische Dokumentationen
+\usepackage{libertine}	% eine freie, sehr schöne Schrift mit Serifen 
+% \usepackage[base]{babel}	% https://tex.stackexchange.com/questions/400986/hyphenrules-environment-no-longer-works-with-polyglossia
+\usepackage{polyglossia}	% Polyglossia: An Alternative to Babel for XƎLATEX and LuaLATEX
+\setdefaultlanguage[spelling=new,	% neue deutsche Rechtschreibung
+					babelshorthands=true	%
+			]{german}
+\usepackage[autostyle=true,german=guillemets]{csquotes}	% Für typografisch schöne Anführungszeichen »« statt „“
+\usepackage{enumerate}	% für  Aufzählungen verschiedenster Art
+\usepackage[hyphens]{url}		% für schönere Umbrüche in Web-Adressen [hyphens] allows breaks after explicit hyphen characters
+\urlstyle{sf}	% gleicher Font für URL wie für Text
+\usepackage{hyperref}	% wunderbares Paket für die interne Verlinkung aller Referenzen innerhalb des PDF
+\hypersetup{
+  bookmarksopenlevel=1,
+	unicode=true,
+	pdfauthor={rmfberlin},
+	pdftitle={Beispiel-Datei für eine längere, einseitig gedruckte Arbeit  mit KOMA-Script},
+	pdfsubject={},
+	breaklinks,hidelinks,
+  colorlinks=true,%
+  % linkcolor=black,% Print-PDF
+  % urlcolor=black,%
+  linkcolor=blue,% Online-PDF
+  urlcolor=blue,%
+  citecolor=orange,
+  filecolor=orange,
+}
+
+
+
+% Pakete für die Beispiel-Texte
+\usepackage{blindtext}	%	für die Blindtexte
+% Pakete für das Literaturverzeichnis
+\usepackage[%
+	style=footnote-dw,%
+	sorting=nty,	%	Sortierung des Literaturverzeichnisses nach (n)ame, (t)itle, (y)ear
+	backend=biber%
+]{biblatex}
+\addbibresource{literatur.bib}
+
+% Dieses Pakete ist nur für die Ausgabe der Tastatur-Symbole im Text. Es kann für andere Arbeiten gelöscht oder auskommentiert werden.
+% Unbedingt als letztes laden.
+\usepackage[os=mac, mackeys=symbols]{menukeys}
+
+%
+%	Informationen über dieses Dokument
+%
+
+\title{Beispieldatei für ein längeres, einseitg gedrucktes Dokument mit KOMA-Script}
+\subtitle{TeXLaTeX-Usergroup Berlin}
+\author{rmfberlin\\\small{E-Mail: \url{listen@rmf.berlin}}}
+\date{\small{\version}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Aufbau  der Gliederung} % (fold)
+	\label{cha:aufbauGliederung}
+	Dieses Dokument basiert auf der Report-Klasse von KOMA-Script. \cite{komascript:doku}	% unser erstes Zitat mit Literaturangabe
+	\section{Kapitel und Abschnitte}
+	\label{sec:KapitelAbschnitte}
+			Der Bericht lässt sich in Kapitel \inlinecode{chapter}, Abschnitte \inlinecode{section}, Unterabschnitte \inlinecode{subsection}, Unterunterabschnitte \inlinecode{subsubsection} und auf Gliederungsstufe fünf und sechs noch mit \inlinecode{paragraph} und \inlinecode{subparagraph} gliedern.\footnote{\LaTeX-Befehle sind in \colorbox{Gainsboro}{in graue Boxen} gesetzt.} 
+			
+			Hiermit wird gleich die zweite Fußnote mit dem Befehl \inlinecode{footnote} gezeigt. Die erste Fußnote wurde durch die Referenz zur Literatur erzeugt.
+			
+			Es wird empfohlen jeder Gliederungsstufe, ein  \inlinecode{label} und eine Zeile \colorbox{Gainsboro}{\textsf{\% Gliederungsstufe (end)}} hinzuzufügen. Der Befehl \inlinecode{label} wird für die Querverweise innerhalb des Dokuments benötigt.\autocite[40]{schlosser:einfuehrung}
+			
+			Für den besseren Überblick gibt man dem Argument für \inlinecode{label} ein Kürzel -- eine Art Etikett -- voranzustellen, z.\,B. cha: für chapter oder sec: für Abschnitt.\autocite[71]{schlosser:einfuehrung}
+	% section{Kapitel und Abschnitte} (end)
+
+	Beispiel:
+	
+	\begin{lstlisting}
+		\chapter{Erstes Kapitel}
+		\label{cha:erstesKapitel}
+			\section{Erster Abschnitt}
+			\label{sec:ersterAbschnitt}
+				\subsection{Erster Unterabschnitt}
+				\label{sub:ersterUnterabschnitt}
+				% subsection erster Unterabschnitt (end)
+			%  section erster abschnitt (end)
+		% chapter erstes kapitel(end)
+	\end{lstlisting}
+
+	Es wird ebenfalls empfohlen, gleich eine Kommentarzeile einzufügen, die das Ende des jeweiligen Abschnitts anzeigt.
+
+	% einen Seitenumbruch erzwingen
+	\newpage
+
+	\section{Aufzählungen} 
+	\label{sec:aufzaehlungen}
+		In diesem Abschnitt geht es um Aufzählungen:
+		\begin{itemize}
+			\item dies
+			\item das und
+			\item jenes
+		\end{itemize}
+		\subsection{Verschachtelte Aufzählungen}
+		\label{sub:aufzaehlungVerschachtelt}
+			Und in diesem Unterabschnitt um verschachtelte Aufzählungen:
+			\begin{itemize}
+				\item erste Ebene
+				\begin{itemize}
+					\item zweite Ebene
+					\begin{itemize}
+						\item dritte Ebene
+						\begin{itemize}
+							\item bis zu insgesamt vier Verschachtelungen
+						\end{itemize}
+					\end{itemize}
+				\end{itemize}
+			\end{itemize}
+			% subsection verschachtelte aufzählungen (end)
+			\subsection{Nummerierte Aufzählungen}
+			\label{sub:nummerAufzaehlung}
+			Interessant sind  noch verschachtelte Listen wie z.\,B. mit führenden Ziffern, führenden Buchstaben usw. Dazu muss das Paket \enquote{enumerate} geladen sein. Eine ausführliche Beschreibung der verschieden Listen und Aufzählungen ist unter \autocite{enumerate} zu finden. 
+
+			Beispiel:
+			\begin{enumerate}
+				\item Eins 
+				\begin{enumerate}
+					\item zweite Ebene
+					\begin{enumerate}
+						\item dritte Ebene
+						\begin{enumerate}
+							\item bis zu insgesamt vier Verschachtelungen
+						\end{enumerate}
+					\end{enumerate}
+				\end{enumerate}
+				\item Zwei 
+				\item Drei 				
+			\end{enumerate}
+
+			Auflistungen lassen sich vielfältig anpassen und gestalten.
+		% subsection nummerierte aufzählungen (end)
+	% section aufzählungen (end)
+	
+	% \section{Querverweise}
+	% \label{sec:querverweise}
+	
+	% section{Querverweise (end)}
+% chapter aufbau gliederung (end)
+
+\chapter{Werkzeuge}
+\label{cha:werkzeuge}
+\section{Empfehlenswerte Literatur}
+	\label{sec:literaturempfehlung}
+	Für den schnellen und erfolgversprechenden Einstieg in \LaTeX\ lohnt sich das Buch von \textcite{schlosser:einfuehrung} und für die normgerechte wissenschaftliche Arbeit das Buch und die Website von \textcite{scholz}(mit Beispieldatei für \LaTeX\autocite{scholz:latexvorlage}).
+	% section Empfehlenswerte Literatur (end)
+
+\section{Arbeitsorganisation -- Workflow}
+\label{ref:ArbeitsorganisationWorkflow}
+Es gibt viele Wege zum Erfolg, um eine wissenschaftliche Arbeit zu verfassen oder ein Buch zu schreiben.\autocite{rmf:workflow} Wichtig ist es, sich schon vorher ein paar Gedanken zur \enquote{Ethik, Inhalt und Form wissenschaftlicher Arbeiten, wissenschaftliches Handwerkszeug, Quellenarbeit, Methoden, Projektmanagement [und der] Präsentation zu machen}.\autocite{w3l} 
+
+Auch lohnt es sich einen Blick auf die Vorgehensweise von Programmierer*innen zu machen, gerade zum Thema Strukturierung des Quelltextes und zum Projektmanagement.\autocite{passig}
+
+
+
+
+
+% (end) section{Arbeitsorganisation -- Workflow}
+\section{Editor}
+\label{sec:editor}
+	Es gibt kaum ein emotionaleres Thema als \enquote{der richtige Editor} für \LaTeX. Die einen schwören auf \textsf{Emacs} oder \textsf{Vim} oder auf die speziellen \LaTeX-Editoren wie \textsf{Kile}, \textsf{\TeX{}maker}, \textsf{\TeX{}shop} usw. 
+	Die letzteren sind Editoren, die spezielle Aufgaben erfüllen und dafür sicherlich auch optimiert sind. 
+	
+	Universelle Editoren, die mehrere Computer-Sprachen beherrschen, halte ich jedoch für günstiger, als sich in verschiedene Editor für verschiedene Aufgaben/Sprachen einzuarbeiten. Und universelle Editoren haben meines Erachtens noch einen wichtigen Vorteil: Da diese von vielen unterschiedlichen Programmieren genutzt werden, sind diese auch in ständiger Entwicklung und häufig den eigenen Bedürfnissen und Vorlieben sehr gut anpassbar.
+
+	Ein Editor ist das ganz persönliche Werkzeug, das sich in die eigene Hand schmiegen muss.  Im Folgenden sind Editoren aufgelistet, die frei und Open Source Software sind und für alle drei Betriebssysteme Windows, macOS und Linux zur Verfügung stehen.\footnote{Wer nur auf dem Mac \LaTeX-Dokumente erstellen will, dem sei Textmate von \href{https://macromates.com/}{https://macromates.com/} ausdrücklich empfohlen.} Alle Editoren können zwischen dem erzeugten PDF und dem \LaTeX-Quelltext schnell und einfach hin- und herspringen. Rechtschreibprüfung für viele Sprachen sind zuschaltbar.
+
+	Zunächst folgen auf \LaTeX spezialisierte Editoren, dann Editoren, die mehr als eine (Computer"=)Sprache verstehen. 
+	% Beachte "= bei (Computer"=)Sprache. Das ist ein shorthand um eine Trennung innerhalb des Wortes Computer zuzulassen. Sonst führen Bindstriche dazu, dass das Wort bis zum Bindestrich nicht getrennt werden darf. Siehe auch die Dokumentation zum Paket polyglossia bei den Spracheinstellungen zu german/deutsch.
+
+	\subsection{TeXstudio/Texmaker}
+	\label{sub:TeXStudioTexMaker}
+		TeXstudio\autocite{texstudio} und Texmaker\autocite{texmaker} sind auf das Erstellen von \LaTeX-Dokumenten hoch spezialisiert. Sie bieten eine große Funktionsvielfalt. Das kann auch zugleich ein Problem sein. Ein geisteswissenschaftliche oder eine juristische Arbeit nutzt einen anderen Befehlsvorrat aus dem großen \LaTeX-Kosmos als eine Arbeit aus den Bereichen Mathematik, Informatik, Technik oder Naturwissenschaften. 
+
+		Die integrierten PDF-Betrachter bieten den großen Vorteil, dass schnell und einfach zwischen dem Text im PDF und dem \LaTeX-Quelltext hin- und hergesprungen werden kann.
+			
+	% subsection{TeX-Studio/TexMaker} (end)
+
+	\subsection{Visual Studio Code}
+	\label{sub:VisualStudioCode}
+	Die Firma Microsoft stellt ebenfalls als freien und Open Source Editor \enquote{Visual Studio Code} zur Verfügung.\autocite{VSCode} Mit der Erweiterung \enquote{LaTeX-Workshop} entsteht eine vollfunktionsfähige \LaTeX-Entwicklungsumgebung. \enquote{Visual Studio Code} hat eine große Entwicklergemeinschaft und eine sehr große Anzahl von Nutzer*innen. 
+
+	Die Erweiterung \enquote{LaTeX-Workshop} erkennt automatisch, welches Dokument das Masterdokument ist, welche Dateien geändert wurden und neu compiliert werden müssen und prüft auch, ob sich an der Literaturdatenbank etwas geändert hat.\autocite{VSCode:LatexWorkshop}
+
+	Wichtigstes Argument für VS Code ist die sehr gute Integration der Versionsverwaltung \enquote{Git}.
+
+	Viele Erweiterungen wie z.\,B. Todo-Listen lassen diesen Editor schnell zu einem universellen Werkzeug für größere Projekte wie eine Master- oder Doktorarbeit werden.
+
+	Wer neben \LaTeX auch in HTML, CSS, markdown usw. schreibt, könnte hier einen sehr modernen Editor finden.
+
+	% subsection{Visual Studio Code} (end)
+% section{Editor} (end)
+
+\section{texdoc}
+\label{texdoc}
+Vielen Anfänger*innen unbekannt ist der Befehl \inlinebefehl{texdoc}. \inlinebefehl{texdoc} ist ein Kommandozeilenprogramm, dass die Dokumentation zu einem \LaTeX-Paket zeigt. Durch die Dokumentationen kann in vielen Fällen die beste Hilfe zu den jeweiligen Paketen erhalten werden. Allerdings ist die Sprache der Paketdokumentationen oftmals Englisch. 
+
+Um  \inlinebefehl{texdoc} aufzurufen, muss man ein Terminal-Fenster öffnen und den Befehl \\\inlinebefehl{texdoc name\_des\_pakets} eingeben. Zum Beispiel öffnet \inlinebefehl{texdoc url} die Dokumentation zum Paket \enquote{url.sty} in der Version 3.4 von Donald Arseneau, zuletzt aktualisiert am 2013-09-16. Dieses Paket wird in diesem Dokument benutzt, um Webadressen anzuzeigen.
+
+In Visual Studio Code kann mit der Tastenkombination \keys{\ctrl+\shift+\`{}} auch ein integriertes Terminal aufgerufen werden. Auch von hier kann mit dem \inlinebefehl{texdoc}-Befehl die Dokumentation zu Klassen und Paketen aufgerufen werden.
+
+% section{texdoc} (end)
+
+\section{Git -- Backups}
+\label{Git}
+Versionskontrollsysteme (VCS) protokollieren Änderungen an einer Datei oder einer Anzahl von Dateien über die Zeit hinweg, so dass man zu jedem Zeitpunkt auf Versionen und Änderungen zugreifen kann. Git als Versionskontrollsystem ermöglicht ebenso verschiedene Versionen einer Datei vergleichend anzuzeigen.
+
+\enquote{Git} ist ein freies und Open Source Versionskontrollsystem, das schnelle und sehr effizient arbeitet.\autocite{ProGit} Egal ob \enquote{nur} Hausarbeit oder große Projekte wie wissenschaftliche Abschlussarbeiten: regelmäßige Backups und ein Versionskontrollsystem helfen die eigene Arbeit zu sichern. 
+
+Wer ohne Backups und ohne ein Versionskontrollsystem arbeitet, handelt leichtsinning und gefährdet seinen Erfolg(zum Thema Backups siehe auch \autocite{rmf:workflow}).
+
+% section{Git} (end)
+
+\section{Literaturdatenbank – JabRef}
+\label{JabRef}
+JabRef ist ein freier und  open source Literatur-Referenz Manager. JabRef basiert auf Java VM und ist gleichermaßen unter Windows, macOS und Linux einsetzbar. Die Oberfläche erschließt sich schnell, und es wird das für \LaTeX notwendige \inlinecode{*.bib} erzeugt. Die o.\,g. Editoren können auf die Literaturreferenzen der JabRef-Datenbank zugreifen.\autocite{JabRef}
+%	section{Literaturdatenbank – JabRef} (end)
+\section{Literaturverzeichnis – Tipps}
+Das Literaturverzeichnis wird mit dem Befehl \inlinecode{printbibliography} ausgegeben. Diesem Befehl kann am Ende mit eckigen Klammern ein neuer Name für das Literaturverzeichnis mitgegeben werden. Soll auch die gesamte Literatur ausgedruckt werden, selbst wenn diese in dem Text nicht zitiert wurde, dann den Befehl \inlinecode{nocite{*}} voran stellen.
+
+\begin{lstlisting}
+	\nocite{*}
+	\printbibliography[title={Literaturverzeichnis und Web-Links}]
+\end{lstlisting}
+
+\label{sec:LiteraturverzeichnisTipps}
+% section{Literaturverzeichnis}(end)
+
+
+
+% \section{Literaturverzeichnis}
+% \label{sec:literaturverzeichnis}
+% % section{Literaturverzeichnis} (end)
+% chapter{Werkzeuge} (end)
+
+\nocite{*}	%	Das gesamte Literaturverzeichnis ausgeben, auch die Einträge, die nicht im Text zitiert wurden.
+\printbibliography[title={Literaturverzeichnis und Web-Links}]	% Literaturverzeichnis umbenennen
+	
+\end{document}
