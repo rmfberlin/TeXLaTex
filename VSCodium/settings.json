@@ -1,0 +1,215 @@
+// /Users/webmaster/Library/Application Support/Code/User/settings.json
+{
+    "cSpell.userWords": [
+      "fontspec",
+      "Tipps",
+      "Verarbeitungstätigkeit"
+    ],
+    "editor.fontFamily": "'Fira Code', 'FiraCode-Retina', 'FiraCode-Retina'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "editor.minimap.scale": 2,
+    "AllAutocomplete.cycleOpenDocumentsOnLaunch": true,
+    "explorer.confirmDelete": false,
+    "cSpell.language": "en,de-DE",
+    "workbench.startupEditor": "newUntitledFile",
+    "asciidoc.preview.fontSize": 18,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+          "name": "lualatex",
+          "command": "lualatex",
+          "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdf",
+              "%DOC%"
+          ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+              "%DOCFILE%"
+            ]
+          }
+        ],
+        "latex-workshop.latex.recipes": [
+            {
+              "name": "xelatex*3",
+              "tools": [
+                  "xelatex",
+                  "xelatex",
+                  "xelatex"
+              ]
+            },
+            {
+              "name": "xelatex -> glossaries -> biber -> xelatex*2",
+              "tools": [
+                  "xelatex",
+                  "makeglossaries",
+                  "biber",
+                  "xelatex",
+                  "xelatex"
+              ]
+            },
+            {
+              "name": "xelatex -> glossaries -> xelatex*2",
+              "tools": [
+                  "xelatex",
+                  "makeglossaries",
+                  "xelatex",
+                  "xelatex"
+              ]
+            },
+            {
+              "name": "lualatex->biber->lualatex x2",
+              "tools": [
+                "lualatex",
+                "biber",
+                "lualatex",
+                "lualatex"
+              ]
+          }
+        ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "workbench.iconTheme": "vscode-icons",
+    "ltex.language": "de-DE",
+    "todo-tree.general.statusBar": "current file",
+    "liveServer.settings.CustomBrowser": "firefox",
+    "liveServer.settings.fullReload": true,
+    "bookmarks.navigateThroughAllFiles": true,
+    "bookmarks.saveBookmarksInProject": true,
+    "git.autofetch": true,
+    "[asciidoc]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": true,
+        "comments": true,
+        "strings": true
+    },
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": true,
+        "comments": true,
+        "strings": true
+    },
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "expanded",
+            "extensionName": ".min.css",
+            "savePath": null
+        }
+    ],
+    "liveServer.settings.donotShowInfoMsg": true,
+    "highlight-matching-tag.styles": {
+        "opening": {
+          "left": {
+            "underline": "yellow"
+          },
+          "right": {
+            "surround": "#155FFA"
+          },
+          "name": {
+            "highlight": "rgba(180, 20, 80, 0.5)"
+          }
+        },
+        "closing": {
+          "full": {
+            "custom": {
+              "dark": {
+                "borderWidth": "0 0 1px 0",
+                "borderColor": "white",
+                "borderStyle": "solid",
+                "borderRadius": "4px",
+                "right": "10px"
+              },
+              "light": {
+                "borderWidth": "0 0 1px 0",
+                "borderColor": "brown",
+                "borderStyle": "solid",
+                "borderRadius": "4px",
+                "right": "10px"
+              }
+            }
+          }
+        }
+    },
+    "asciidoc.enableErrorDiagnostics": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editorAssociations": {
+      "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "git.confirmSync": false,
+    "insertDateString.format": "DD.MM.YYYY hh:mm:ss",
+    "insertDateString.formatDate": "DD.MM.YYYY",
+    "cSpell.enableFiletypes": [
+      "latex"
+    ],
+    "todo-tree.general.tags": [
+      // "BUG",
+      // "HACK",
+      "FIXME",
+      "TODO",
+      // "XXX",
+      "ALERT"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+      "icon": "alert",
+      "type": "tag",
+      "foreground": "red",
+      // "background": "white",
+      // "opacity": 50,
+      "iconColour": "red",
+      "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+          "type": "tag",
+          "foreground": "orange",
+          // "background": "white",
+          "icon": "checklist",
+          "iconColour": "orange",
+            // "type": "line"
+            "gutterIcon": true
+          },
+          "FIXME": {
+          "icon": "tools",
+            "foreground": "yellow",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        }
+    },  
+      "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+      "sync.gist": "xxxxxxx",
+      "sync.autoUpload": true,
+      "sync.quietSync": true,
+      "sync.autoDownload": true,
+      "sync.syncExtensions": false,
+      "sync.forceUpload": true,
+      "sync.removeExtensions": false,
+}
