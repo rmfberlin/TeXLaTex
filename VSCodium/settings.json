@@ -204,7 +204,9 @@
             "gutterIcon": true
         }
     },  
+    // für TODO-Tree
       "todo-tree.regex.regex": "((//|#|%|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    // für Settings Sync
       "sync.gist": "xxxxxxx",
       "sync.autoUpload": true,
       "sync.quietSync": true,
