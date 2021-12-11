@@ -85,6 +85,16 @@
 			"\\end{lstlisting}"
 		]
 	},
+	"Frame":{
+		"prefix": "Frame",
+		"scope": "latex",
+		"description": "frame Umgebung",
+		"body": [
+			"\\begin{frame}<handout:1|beamer:1>[c]",
+			"\t\\frametitle{$1}",
+			"\\end{frame}"
+		]
+	},
 	"Label-lst":{
 		"prefix": "lstlabel",
 		"scope": "latex",
